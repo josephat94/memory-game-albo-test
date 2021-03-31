@@ -10,14 +10,24 @@ export const mainSlice = createSlice({
     card1Selected: null,
     card2Selected: null,
     allFound: false,
+    genreName: null,
+    genres: [],
+
   },
   reducers: {
+    setGenres: (state, action) => {
+      
+      state.genres = action.payload;
+    },
     chooseGenre: (state, action) => {
+    let genreFound= state.genres.find(genre=>genre.id=action.payload)
+    state.genreName= genreFound.name;
       state.genreSelected = action.payload;
     },
     setLoading: (state) => {
       state.loading = !state.loading;
     },
+
     setMovies: (state, action) => {
       let originalMovies = action.payload.slice(0, 15);
 
@@ -33,13 +43,14 @@ export const mainSlice = createSlice({
         found: false,
       }));
     },
-    reset:(state)=>{
-      state.genreSelected= null;
-      state.loading= false;
-      state.movies= [];
-      state.card1Selected= null;
-      state.card2Selected= null;
-      state.allFound= false;
+    reset: (state) => {
+      state.genreSelected = null;
+      state.loading = false;
+      state.movies = [];
+      state.card1Selected = null;
+      state.card2Selected = null;
+      state.allFound = false;
+      state.genres=[]
     },
 
     flipCard: (state, action) => {
@@ -89,15 +100,14 @@ export const mainSlice = createSlice({
       //* Se busca si ya no falta ninguna card pareja por aparecer en el tablero
       let allCorrect = searchAllFound(movies);
       console.log(allCorrect);
-      let res=false;
+      let res = false;
       if (allCorrect == true) {
-        res=true; 
+        res = true;
       }
 
       state.movies = movies;
-      state.allFound=res;
+      state.allFound = res;
     },
-
   },
 });
 
@@ -118,7 +128,8 @@ export const {
   setLoading,
   setMovies,
   flipCard,
-  reset
+  reset,
+  setGenres,
 } = mainSlice.actions;
 
 // The function below is called a thunk and allows us to perform async logic. It
@@ -134,6 +145,8 @@ export const incrementAsync = (amount) => (dispatch) => {
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state) => state.counter.value)`
+export const selectGenres = (state) => state.main.genres;
+export const selectGenreName=state=>state.main.genreName;
 export const selectGenre = (state) => {
   return state.main.genreSelected;
 };
