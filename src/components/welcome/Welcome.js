@@ -72,7 +72,7 @@ useEffect(()=>{
         <h1>{genreSelected}</h1>
     
         <br></br>
-        <div  className="d-flex flex-wrap justify-content-center">
+        <Row  className="d-flex flex-wrap justify-content-center">
           {genres.map((genre) => {
             return (
               <GenreCard
@@ -84,7 +84,7 @@ useEffect(()=>{
               ></GenreCard>
             );
           })}
-        </div>
+        </Row>
       </div>
 
       <Loading show={loading} text={"Cargando Juego"}></Loading>
