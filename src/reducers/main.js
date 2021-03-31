@@ -29,7 +29,7 @@ export const mainSlice = createSlice({
     },
 
     setMovies: (state, action) => {
-      let originalMovies = action.payload.slice(0, 15);
+      let originalMovies = action.payload.slice(0, 13);
 
       originalMovies = originalMovies.concat(originalMovies);
       originalMovies = shuffleArray(originalMovies);
