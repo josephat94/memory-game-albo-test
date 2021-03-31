@@ -18,7 +18,12 @@ Una vez instalados los paquetes y dependencias, puedes correr el siguiente coman
 
 ### `yarn start`
 
-Correo la app en modo desarrollo the app in the development mode.<br />
+Corre la app en modo desarrollo the app in the development mode.<br />
 abre [http://localhost:3000](http://localhost:3000) Para ver la aplicación en tu navegador.
 
 La pagína se recargara al realizar algun cambio en el código.<br />
+
+
+### DEMO 
+
+Memoria de Película esta publicada en https://josephat94.github.io/memory-game-albo-test/
