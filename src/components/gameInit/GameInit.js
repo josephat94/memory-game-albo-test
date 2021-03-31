@@ -24,7 +24,7 @@ const dispatch= useDispatch();
         <br></br>
       <h3>Género {genreName}</h3>
 
-      <div className="w-100 h-100 d-flex flex-wrap justify-content-center">
+      <div className="w-100 d-flex flex-wrap justify-content-between movies-ctn align-items-center ">
         {movies.map((movie, index) => {
           return (
             <MovieCard
