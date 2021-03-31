@@ -1,14 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import logo from "./logo.svg";
 import { Counter } from "./features/counter/Counter";
 import "./App.css";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+} from "react-router-dom";
 
 import Welcome from "./components/welcome/Welcome";
 import GameInit from "./components/gameInit/GameInit";
+import { useSelector } from "react-redux";
+import { selectGenre, selectMovies } from "./reducers/main";
 
 function App() {
+  const movies = useSelector(selectMovies);
+  const genreSelected = useSelector(selectGenre);
+
+  useEffect(() => {
+    console.log("Hey aqui estan las movies", movies);
+  }, [movies]);
   return (
     <div className="App">
       {/*       <header className="App-header">
@@ -56,22 +70,27 @@ function App() {
           </a>
         </span>
       </header> */}
-<Router>
-<Switch>
-        <Route path="/memory">
-          <GameInit />
-        </Route>
-        <Route path="/">
-          <Welcome></Welcome>
-        </Route>
-
-        <Route path="*">
-        <Welcome></Welcome>
+      <Router>
+        <Switch>
+          <Route path="/memory">
+            {movies.length > 0 && genreSelected ? (
+              <GameInit></GameInit>
+            ) : (
+              <Redirect to="/" />
+            )}
           </Route>
-
-      </Switch>
-</Router>
-    
+          <Route path="/">
+            {movies.length > 0 && genreSelected ? (
+              <Redirect to="/memory" />
+            ) : (
+              <Welcome></Welcome>
+            )}
+          </Route>
+          <Route path="*">
+            <Redirect to="/"></Redirect>
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

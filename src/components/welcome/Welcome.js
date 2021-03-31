@@ -45,8 +45,6 @@ const Welcome = (props) => {
       );
 
       dispatch(setMovies(response.results));
-
-      dispatch(setLoading());
     } catch (e) {
       console.log(e);
       dispatch(setLoading());
