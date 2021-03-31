@@ -7,7 +7,8 @@ const MovieCard = (props) => {
   
   return (
     <div
-    className="onHover"
+    className={found?"found onHover":"onHover"}
+   
       style={{
         width: "8%",
         margin: "1rem",
@@ -16,7 +17,7 @@ const MovieCard = (props) => {
       }}
     >
       <Flipcard
-      className="w-100 h-100 "
+      className="w-100 h-100"
       flipped={isFlipped}>
         <Card
         className="movie-card"
