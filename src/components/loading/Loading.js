@@ -5,13 +5,12 @@ const Loading =props=>{
 const {show, text}= props;
 
     return(
-
         <Modal
         size="md"
         show={show}
        centered={true}
       >
-        <Modal.Body className="d-flex justify-content-center align-items-center">
+        <Modal.Body className=" pt-5 pb-5 d-flex justify-content-center align-items-center">
 
         <Spinner animation="border" className="mr-4" />
          {text}
