@@ -22,7 +22,7 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className="App bg-secondary">
       {/*       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />

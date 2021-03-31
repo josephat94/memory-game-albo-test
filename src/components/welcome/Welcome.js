@@ -37,7 +37,6 @@ const Welcome = (props) => {
 
   useEffect(() => {
     if (genreSelected != null) {
-      console.log("Aqui debemos lanzar un api request");
       SearchMovies();
     }
   }, [genreSelected]);
@@ -62,16 +61,17 @@ const Welcome = (props) => {
   };
   return (
     <>
-      <Container>
+      <div style={{overflowY:"auto", height:"100vh"}}> 
         <h1>Memoria de película!</h1>
         <h3>Selecciona un género para comenzar</h3>
         <h1>{genreSelected}</h1>
     
         <br></br>
-        <div className="d-flex flex-wrap justify-content-center">
+        <div  className="d-flex flex-wrap justify-content-center">
           {genres.map((genre) => {
             return (
               <GenreCard
+              className="onHover"
                 onCardClick={onCardClick}
                 id={genre.id}
                 key={"id-genre-" + genre.id}
@@ -80,7 +80,7 @@ const Welcome = (props) => {
             );
           })}
         </div>
-      </Container>
+      </div>
 
       <Loading show={loading} text={"Cargando Juego"}></Loading>
      

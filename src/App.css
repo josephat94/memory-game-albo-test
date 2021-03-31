@@ -55,18 +55,22 @@
 .Flipcard-front{
   width:100% !important;
   height:100% !important;
+  overflow:hidden !important;
 }
 .Flipcard-back{
   width:100% !important;
   height:100% !important;
+  overflow:hidden !important;
 }
 .Flipcard{
   width:100% !important;
   height:100% !important;
+  overflow:hidden !important;
 }
 .Flipcard-flipper{
   width:100% !important;
   height:100% !important;
+  overflow:hidden !important;
 }
 .special-card{
   width:100%;
