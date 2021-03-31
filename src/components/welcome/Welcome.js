@@ -7,7 +7,9 @@ import {
   chooseGenre,
   selectAllFound,
   selectGenre,
+  selectGenres,
   selectLoading,
+  setGenres,
   setLoading,
   setMovies,
 } from "../../reducers/main";
@@ -15,9 +17,10 @@ import Loading from "../loading/Loading";
 import MemoryFinished from '../memoryFinished/MemoryFinished';
 import GenreCard from "./genreCard";
 const Welcome = (props) => {
-  const [genres, setGenres] = useState([]);
+
 
   const genreSelected = useSelector(selectGenre);
+  const genres= useSelector(selectGenres);
   const loading = useSelector(selectLoading);
  
   const dispatch = useDispatch();
@@ -26,14 +29,16 @@ const Welcome = (props) => {
       try {
         let resp = await axios.get("/genre/movie/list");
         // console.log(resp);
-        setGenres(resp.genres);
+        dispatch(setGenres(resp.genres));
       } catch (e) {
         console.log(e);
       }
     })();
   }, []);
 
-
+useEffect(()=>{
+  console.log(genres);
+},[genres])
 
   useEffect(() => {
     if (genreSelected != null) {

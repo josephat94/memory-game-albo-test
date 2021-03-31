@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { flipCard, reset, selectAllFound, selectCard1, selectCard2, selectMovies } from "../../reducers/main";
+import { flipCard, reset, selectAllFound, selectCard1, selectCard2, selectGenreName, selectMovies } from "../../reducers/main";
 import MemoryFinished from "../memoryFinished/MemoryFinished";
 import MovieCard from "./Card";
 const GameInit = (props) => {
@@ -9,6 +9,7 @@ const GameInit = (props) => {
   const card1Selected= useSelector(selectCard1)
   const card2Selected= useSelector(selectCard2)
   const allFound= useSelector(selectAllFound);
+  const genreName= useSelector(selectGenreName);
 const dispatch= useDispatch();
 
   const onClickCard=(id)=>{
@@ -20,7 +21,8 @@ const dispatch= useDispatch();
   }
   return (
     <div className="h-100 w-100 bg-secondary">
-      <h2>Genero Suspenso {card1Selected} - {card2Selected}</h2>
+        <br></br>
+      <h3>Género {genreName}</h3>
 
       <div className="w-100 h-100 d-flex flex-wrap justify-content-center">
         {movies.map((movie, index) => {
