@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  height: 100vh;
+  width: 100%;
+  overflow-y: hidden;
 }
 
 .App-logo {
@@ -38,13 +41,36 @@
   }
 }
 
+.movie-card{
+  width:100%;
+  height:100%;
+}
 
-
+.Flipcard-front{
+  width:100% !important;
+  height:100% !important;
+}
+.Flipcard-back{
+  width:100% !important;
+  height:100% !important;
+}
+.Flipcard{
+  width:100% !important;
+  height:100% !important;
+}
+.Flipcard-flipper{
+  width:100% !important;
+  height:100% !important;
+}
+.special-card{
+  width:100%;
+  height:100%;
+}
 /* Animations */
 .onHover{
-  transition: all 1s !important;
+  transition: all .3s !important;
 
-  transition: all 3s !important;
+
 }
 .onHover:hover {
   

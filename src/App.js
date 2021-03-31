@@ -20,9 +20,7 @@ function App() {
   const movies = useSelector(selectMovies);
   const genreSelected = useSelector(selectGenre);
 
-  useEffect(() => {
-    console.log("Hey aqui estan las movies", movies);
-  }, [movies]);
+
   return (
     <div className="App">
       {/*       <header className="App-header">
