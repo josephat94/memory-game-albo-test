@@ -16,7 +16,10 @@ export const mainSlice = createSlice({
       state.loading= !state.loading;
     },
     setMovies:(state, action)=>{
-      state.movies= action.payload
+
+      console.log("movies a cargar", action.payload);
+      state.loading=false;
+      state.movies= action.payload;
     }
   },
 });
