@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { flipCard, reset, selectAllFound, selectCard1, selectCard2, selectGenreName, selectMovies } from "../../reducers/main";
 import MemoryFinished from "../memoryFinished/MemoryFinished";
@@ -24,7 +24,7 @@ const dispatch= useDispatch();
         <br></br>
       <h3>Género {genreName}</h3>
 
-      <div className="w-100 d-flex flex-wrap justify-content-between movies-ctn align-items-center ">
+      <Row className="w-100 d-flex flex-wrap justify-content-center movies-ctn align-items-center m-0 ">
         {movies.map((movie, index) => {
           return (
             <MovieCard
@@ -33,7 +33,7 @@ const dispatch= useDispatch();
             onClickCard={onClickCard} index={index} isFlipped={movie.isFlipped} id={movie.id} key={"movie" + movie.id+ "key-"+ index} name={movie.title}></MovieCard>
           );
         })}
-      </div>
+      </Row>
 
       <MemoryFinished onReset={onReset} show={allFound} text={"Felicidades!! Lo has conseguido"}></MemoryFinished>
     </div>
